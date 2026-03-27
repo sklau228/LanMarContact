@@ -1,0 +1,25 @@
+﻿@model ContactManagerLanMar.Models.Contact
+
+@{
+    ViewData["Title"] = "Contact Details";
+}
+
+<h1 class="mb-3">Contact Details</h1>
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">First Name</dt>
+            <dd class="col-sm-9">@Model.FirstName</dd>
+            <dt class="col-sm-3">Last Name</dt>
+            <dd class="col-sm-9">@Model.LastName</dd>
+            <dt class="col-sm-3">Company</dt>
+            <dd class="col-sm-9">@Model.CompanyName</dd>
+            <dt class="col-sm-3">Mobile</dt>
+            <dd class="col-sm-9">@Model.Mobile</dd>
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+        </dl>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back</a>
+    </div>
+</div>

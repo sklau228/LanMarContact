@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ContactManagerLanMar.Models.Contact>
+
+<h1 class="page-title">Contacts</h1>
+<form method="get" class="mb-3 d-flex gap-2">
+    <input type="text"
+           name="searchString"
+           placeholder="Search by name or email"
+           class="form-control w-25" />
+
+    <button class="btn btn-primary">Search</button>
+</form>
+<a asp-action="Create" class="btn btn-success mb-3">Add Contact</a>
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Company</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.CompanyName</td>
+                <td>@item.Mobile</td>
+                <td>@item.Email</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
